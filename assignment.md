@@ -39,7 +39,9 @@ Here are a couple of helpful hints to guide you along the way:
 
 Language/Framework. Please utilize Ruby on Rails as this is the primary tech stack for this position
 Practice TDD and SOLID principles
+
 PR rapport. Sometimes code doesn't require comments, but the PR does. It provides readers a guide as to how to approach the changes. How do you set up your team to make the best assessment of your code?
+
 Extra points for using React.js for frontend UI
 If you are running out of time, please focus on delivering high quality features instead of completing the whole thing
 
