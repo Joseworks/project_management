@@ -1,3 +1,5 @@
+# Project management dashboard with frontend as well as API access for RedflagAI.
+
 # README
 
 This README would normally document whatever steps are necessary to get the
