@@ -14,9 +14,10 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 
 gem 'devise'
+gem 'jwt'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -45,6 +46,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'rubocop-factory_bot', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rake', require: false
@@ -54,4 +56,5 @@ end
 
 group :development do
   gem 'bundle-audit'
+  gem 'overcommit'
 end
