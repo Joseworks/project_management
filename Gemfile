@@ -58,3 +58,8 @@ group :development do
   gem 'bundle-audit'
   gem 'overcommit'
 end
+
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers', '~> 5.0'
+end
