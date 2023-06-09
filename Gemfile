@@ -42,7 +42,8 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', require: false
+  gem 'factory_bot_rails'
+  gem 'faker' # Random data generation
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec-rails'
