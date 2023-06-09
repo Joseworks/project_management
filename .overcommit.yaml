@@ -1,0 +1,72 @@
+# Use this file to configure the Overcommit hooks you wish to use. This will
+# extend the default configuration defined in:
+# https://github.com/brigade/overcommit/blob/master/config/default.yml
+#
+# At the topmost level of this YAML file is a key representing type of hook
+# being run (e.g. pre-commit, commit-msg, etc.). Within each type you can
+# customize each hook, such as whether to only run it on certain files (via
+# `include`), whether to only display output if it fails (via `quiet`), etc.
+#
+# For a complete list of hooks, see:
+# https://github.com/brigade/overcommit/tree/master/lib/overcommit/hook
+#
+# For a complete list of options that you can use to customize hooks, see:
+# https://github.com/brigade/overcommit#configuration
+#
+# Uncomment the following lines to make the configuration take effect.
+
+verify_signatures: false
+
+PreCommit:
+  BundleAudit:
+    enabled: true
+    description: 'Check for vulnerable versions of gems'
+    required_executable: 'bundle-audit'
+    install_command: 'gem install bundler-audit'
+    flags: ['--update']
+
+  MergeConflicts:
+    enabled: true
+    description: 'Check for merge conflicts'
+    quiet: false
+
+  RailsSchemaUpToDate:
+    enabled: true
+    description: 'Check if database schema is up to date'
+    include:
+      - 'db/migrate/*.rb'
+      - 'db/schema.rb'
+      - 'db/structure.sql'
+  BundleCheck:
+    enabled: true
+    description: 'Check if local Gemfile.lock matches Gemfile when either changes'
+
+  RuboCop:
+    enabled: true
+    description: 'Analyze with RuboCop'
+    flags: ['-c.rubocop.yml']
+    exclude:
+      - 'db/schema.rb'
+
+  TrailingWhitespace:
+    enabled: true
+    description: 'Check for trailing whitespace'
+    required_executable: 'grep'
+    flags: ['-IHn', "[ \t]$"]
+    exclude:
+      - 'test/vcr_cassettes/**/*'
+      - 'spec/vcr/**/*'
+
+CommitMsg:
+  EmptyMessage:
+    enabled: true
+    description: 'Check for empty commit message'
+    quiet: false
+
+  HardTabs:
+    enabled: true
+    description: 'Check for hard tabs'
+
+  TrailingPeriod:
+    enabled: true
+    description: 'Check for trailing periods in subject'
