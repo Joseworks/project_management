@@ -24,3 +24,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+___
+
+1 - Setup dependencies (Parts 1 and 2)
+
+2- Setup users models, controllers and authentication
+
+3- Setup roles (employees default users, managers) 
+
+4- Setup managers 
+
+ 
