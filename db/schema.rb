@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_123740) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_191429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "work_focus", ["development", "design", "business", "research"]
 
   create_table "roles", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -42,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_123740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "role_id", null: false
+    t.string "title"
+    t.enum "work_focus", enum_type: "work_focus"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
